@@ -1,0 +1,40 @@
+{
+    "name": "qr/backend",
+    "description": "QR Test",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Backend\\": "backend/",
+            "Controller\\": "backend/controllers/",
+            "Handler\\": "backend/Handler/",
+            "config\\": "backend/config/",
+            "ORM\\": "backend/config/ORM",
+            "Logger\\": "backend/config/logger"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "authors": [
+        {
+            "name": "al-1100000-ex"
+        }
+    ]
+}

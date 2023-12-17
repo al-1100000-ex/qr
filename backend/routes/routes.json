@@ -1,0 +1,12 @@
+[
+  {
+    "method": "POST",
+    "route": "/testPost",
+    "handler": "Controller\\UserController::test"
+  },
+  {
+    "method": "POST",
+    "route": "/getRestData",
+    "handler": "Controller\\RestaurantController::getRestaurantData"
+  }
+]

@@ -1,0 +1,116 @@
+Error_Code: 200
+Error_Message: PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'insertSuccess' in 'field list' in C:\Projekte\qr_web\backend\config\ORM\ORM.php:381
+Stack trace:
+#0 C:\Projekte\qr_web\backend\config\ORM\ORM.php(381): PDOStatement->execute()
+#1 C:\Projekte\qr_web\backend\controllers\UserController.php(17): ORM\ORM->execute()
+#2 C:\Projekte\qr_web\backend\RouteDispatcher.php(19): Controller\UserController::test()
+#3 C:\Projekte\qr_web\backend\index.php(14): Backend\RouteDispatcher->dispatch()
+#4 {main}
+
+SQL: INSERT INTO test (test)
+                VALUES
+                (insertSuccess)
+
+Step: 4
+File: C:\Projekte\qr_web\backend\config\ORM\ORM.php
+Line: 396
+Step: 3
+File: C:\Projekte\qr_web\backend\controllers\UserController.php
+Line: 17
+Step: 2
+File: C:\Projekte\qr_web\backend\RouteDispatcher.php
+Line: 19
+Step: 1
+File: C:\Projekte\qr_web\backend\index.php
+Line: 14
+Time: 2023-12-10 18:08:33
+
+-------------------------------------------------------
+
+Error_Code: 200
+Error_Message: PDOException: There is already an active transaction in C:\Projekte\qr_web\backend\config\ORM\ORM.php:378
+Stack trace:
+#0 C:\Projekte\qr_web\backend\config\ORM\ORM.php(378): PDO->beginTransaction()
+#1 C:\Projekte\qr_web\backend\controllers\UserController.php(24): ORM\ORM->execute()
+#2 C:\Projekte\qr_web\backend\RouteDispatcher.php(19): Controller\UserController::test()
+#3 C:\Projekte\qr_web\backend\index.php(14): Backend\RouteDispatcher->dispatch()
+#4 {main}
+
+SQL: INSERT INTO test (test)
+                VALUES
+                (insertSuccess)
+
+Step: 4
+File: C:\Projekte\qr_web\backend\config\ORM\ORM.php
+Line: 396
+Step: 3
+File: C:\Projekte\qr_web\backend\controllers\UserController.php
+Line: 24
+Step: 2
+File: C:\Projekte\qr_web\backend\RouteDispatcher.php
+Line: 19
+Step: 1
+File: C:\Projekte\qr_web\backend\index.php
+Line: 14
+Time: 2023-12-10 18:08:33
+
+-------------------------------------------------------
+
+Error_Code: 200
+Error_Message: PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'insertSuccess' in 'field list' in C:\Projekte\qr_web\backend\config\ORM\ORM.php:381
+Stack trace:
+#0 C:\Projekte\qr_web\backend\config\ORM\ORM.php(381): PDOStatement->execute()
+#1 C:\Projekte\qr_web\backend\controllers\UserController.php(17): ORM\ORM->execute()
+#2 C:\Projekte\qr_web\backend\RouteDispatcher.php(19): Controller\UserController::test()
+#3 C:\Projekte\qr_web\backend\index.php(14): Backend\RouteDispatcher->dispatch()
+#4 {main}
+
+SQL: INSERT INTO test (test)
+                VALUES
+                (insertSuccess)
+
+Step: 4
+File: C:\Projekte\qr_web\backend\config\ORM\ORM.php
+Line: 396
+Step: 3
+File: C:\Projekte\qr_web\backend\controllers\UserController.php
+Line: 17
+Step: 2
+File: C:\Projekte\qr_web\backend\RouteDispatcher.php
+Line: 19
+Step: 1
+File: C:\Projekte\qr_web\backend\index.php
+Line: 14
+Time: 2023-12-10 18:08:33
+
+-------------------------------------------------------
+
+Error_Code: 200
+Error_Message: PDOException: There is already an active transaction in C:\Projekte\qr_web\backend\config\ORM\ORM.php:378
+Stack trace:
+#0 C:\Projekte\qr_web\backend\config\ORM\ORM.php(378): PDO->beginTransaction()
+#1 C:\Projekte\qr_web\backend\controllers\UserController.php(24): ORM\ORM->execute()
+#2 C:\Projekte\qr_web\backend\RouteDispatcher.php(19): Controller\UserController::test()
+#3 C:\Projekte\qr_web\backend\index.php(14): Backend\RouteDispatcher->dispatch()
+#4 {main}
+
+SQL: INSERT INTO test (test)
+                VALUES
+                (insertSuccess)
+
+Step: 4
+File: C:\Projekte\qr_web\backend\config\ORM\ORM.php
+Line: 396
+Step: 3
+File: C:\Projekte\qr_web\backend\controllers\UserController.php
+Line: 24
+Step: 2
+File: C:\Projekte\qr_web\backend\RouteDispatcher.php
+Line: 19
+Step: 1
+File: C:\Projekte\qr_web\backend\index.php
+Line: 14
+Time: 2023-12-10 18:08:33
+
+-------------------------------------------------------
+
