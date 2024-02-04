@@ -4,11 +4,11 @@
     "slug": "homepage-native",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/bawe-logo-v1.png",
+    "icon": "./assets/dalle_realistic.webp",
     "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/bawe-logo-v1.png",
-      "resizeMode": "contain",
+      "image": "./assets/dalle_realistic.webp",
+      "resizeMode": "cover",
       "backgroundColor": "#232323"
     },
     "assetBundlePatterns": [
@@ -19,14 +19,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/bawe-logo-v1.png",
+        "foregroundImage": "./assets/dalle_realistic.webp",
         "backgroundColor": "#000000"
       },
       "package": "com.alexh_music.homepagenative",
       "permissions": ["CAMERA"]
     },
     "web": {
-      "favicon": "./assets/bawe-logo-v1.png"
+      "favicon": "./assets/dalle_realistic.webp"
     },
     "extra": {
       "eas": {

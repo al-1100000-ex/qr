@@ -1,28 +1,18 @@
 import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
-    main     : {
-        backgroundColor: '#232323',
+    main      : {
+        height: '100%',
+    },
+    mainDimmed: {
+        backgroundColor: 'rgba(255,255,255,0.2)',
         height         : '100%',
     },
-    text     : {
+    text      : {
         color: 'white',
     },
-    nav      : {
-        position       : 'fixed',
-        top            : 0,
-        left           : 0,
-        width          : '100%',
-        backgroundColor: 'lightgrey',
-        height         : 50,
-        display        : 'flex',
-        flexDirection  : 'row',
-        justifyContent : 'space-between',
-        alignItems     : 'center',
-    },
-    nav__elem: {
-        padding        : 10,
-        backgroundColor: 'pink',
+    bgTransp  : {
+        backgroundColor: 'transparent',
     }
 });
 

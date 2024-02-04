@@ -2,22 +2,25 @@ import React, {useState, useEffect} from 'react';
 import {connect} from "react-redux";
 import {View, Text, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
 import {Camera} from 'expo-camera';
-import MapView, {Marker, PROVIDER_GOOGLE} from "react-native-maps";
 import {saveData} from "./functions";
+import {setScanned} from "./reducers/baseReducer";
 
 const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 
-import './../assets/Element-BAWE.png';
 import {sleep} from "expo-cli/build/commands/utils/promise";
+import MyMenuContainer from "./MyMenu/MyMenuContainer";
+import LoadingContainer from "./Loading/LoadingContainer";
+import {setTable, storeMenuList} from "./reducers/MyMenuReducer";
+import Nav from "./Nav";
 
 const QR = (props) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [cam, setCam] = useState(false);
     const [scanned, setScanned] = useState(false);
     const [restID, setRestID] = useState(null);
+    const [table, setTable] = useState(null);
     const [resData, setResData] = useState({});
-    const [lat, setLat] = useState(null);
-    const [lng, setLng] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -42,7 +45,10 @@ const QR = (props) => {
         setCam(false);
         const data = JSON.parse(e.data);
         if (data.ID) {
+            setLoading(true);
             setRestID(data.ID)
+            setTable(data.Table || null);
+            props.setTable(data.Table || null);
             loadRestData(data.ID);
         }
     }
@@ -60,73 +66,59 @@ const QR = (props) => {
     }
 
     const storeRestData = async (data) => {
-        setLat(Number(data.Latitude));
-        setLng(Number(data.Longitude));
         setResData(data);
+        await props.storeMenuList(data);
         await sleep(100);
+        props.setScanned({ scanned: true });
         setScanned(true);
+        setLoading(false);
+        props.navigation.navigate('MyMenu');
+    }
+
+    if (loading) {
+        return (
+            <LoadingContainer/>
+        )
     }
 
     return (
-        <View style={styles.div}>
-            <TouchableOpacity style={styles.scan_button} onPress={toggleCam}>
-                <Text>Scan QR-Code</Text>
-            </TouchableOpacity>
-            {cam &&
-                <View style={styles.container}>
-                    <Camera style={styles.camera} onBarCodeScanned={barCodeScanned}/>
-                </View>
-            }
-            {scanned && resData && lat && lng &&
-                <View style={styles.map_container}>
-                    <View style={styles.info}>
-                        <Text style={styles.restName}>{resData.Name}</Text>
-                        {resData.Street && resData.Zip_Code && resData.City &&
-                            <Text
-                                style={styles.restAdress}>{resData.Street + ', ' + resData.Zip_Code + ' ' + resData.City}</Text>
-                        }
+        <View>
+            <Nav navigation={props.navigation} comp={'qr'} />
+            <View style={styles.div}>
+                <TouchableOpacity style={styles.scan_button} onPress={toggleCam}>
+                    <Text>Scan QR-Code</Text>
+                </TouchableOpacity>
+                {cam &&
+                    <View style={styles.container}>
+                        <Camera style={styles.camera} onBarCodeScanned={barCodeScanned}/>
                     </View>
-                    <MapView
-                        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-                        style={styles.map}
-                        region={{
-                            latitude      : lat,
-                            longitude     : lng,
-                            latitudeDelta : 0.015,
-                            longitudeDelta: 0.0121,
-                        }}
-                        mapType={'satellite'}
-                    >
-                        <Marker
-                            title={resData.Name || ''}
-                            description={(resData.Zip_Code.toString() || '') + ' ' + (resData.City || '')}
-                            coordinate={{
-                                latitude : lat,
-                                longitude: lng,
-                            }}
-                        />
-                    </MapView>
-                </View>
-            }
+                }
+            </View>
         </View>
     );
 }
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = (state) => ({
+    backButton  : state.base.backButton,
+    directToComp: state.base.directToComp,
+})
 
 const mapDispatchToProps = {
     saveData,
+    setScanned,
+    storeMenuList,
+    setTable,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(QR);
 
 const styles = StyleSheet.create({
     div          : {
-        backgroundColor: '#232323',
-        height         : '100%',
-        display        : 'flex',
-        justifyContent : 'center',
-        alignItems     : 'center',
+        // backgroundColor: '#232323',
+        height        : '100%',
+        display       : 'flex',
+        justifyContent: 'center',
+        alignItems    : 'center',
     },
     scan_button  : {
         position       : 'absolute',
@@ -159,10 +151,10 @@ const styles = StyleSheet.create({
         height  : '50%',
     },
     info         : {
-        marginTop      : -50,
+        marginTop      : -80,
         backgroundColor: 'white',
         width          : '100%',
-        height         : 50,
+        height         : 80,
         justifyContent : 'center',
         alignItems     : 'flex-start',
         paddingLeft    : 10,

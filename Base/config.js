@@ -6,6 +6,7 @@ const baseURL = 'http://192.168.0.96/qr/'; //VISCOM LAPTOP
 
 const config = {
     baseURL,
+    imageURL: baseURL + 'Base/Media/Images/',
 }
 
 export default config;
