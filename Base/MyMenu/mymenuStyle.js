@@ -2,11 +2,10 @@ import {StyleSheet} from "react-native";
 
 export const mymenuStyle = StyleSheet.create({
     menu                : {
-        width : '100%',
-        height: '100%',
+        flex: 1,
     },
     header              : {
-        width            : '100%',
+        flex             : 0.03,
         color            : 'white',
         display          : 'flex',
         flexDirection    : 'row',
@@ -17,6 +16,9 @@ export const mymenuStyle = StyleSheet.create({
     },
     headerText          : {
         color: 'white',
+    },
+    scollableMenuList   : {
+        flex: 1,
     },
     typesContainer      : {
         padding      : 20,
@@ -44,27 +46,70 @@ export const mymenuStyle = StyleSheet.create({
         fontSize         : 18,
     },
     itemOutsideContainer: {
-        position       : 'relative',
-        paddingTop     : 40,
-        marginTop      : -40,
-        backgroundColor: 'white',
-        zIndex         : 1,
-        borderRadius   : 30,
-        paddingBottom  : 10,
+        position         : 'relative',
+        paddingTop       : 40,
+        marginTop        : -40,
+        backgroundColor  : 'white',
+        zIndex           : 1,
+        borderRadius     : 30,
+        paddingBottom    : 10,
+        paddingHorizontal: 20,
     },
     itemContainer       : {
         width            : '100%',
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         paddingVertical  : 7,
+        backgroundColor  : 'white',
     },
     itemHeader          : {
         display       : 'flex',
         flexDirection : 'row',
         justifyContent: 'space-between',
         alignItems    : 'center',
+        flex          : 1,
+    },
+    itemsLeftContainer  : {
+        display       : 'flex',
+        flexDirection : 'row',
+        gap           : 10,
+        justifyContent: "center",
+        alignItems    : "center",
+    },
+    itemTextDesc        : {
+        flex: 1,
     },
     itemDescription     : {
         fontSize : 8,
         fontStyle: "italic",
-    }
+    },
+    itemAmountContainer : {
+        flex           : 0.4,
+        display        : 'flex',
+        flexDirection  : 'row',
+        justifyContent : 'space-between',
+        alignItems     : 'center',
+    },
+    priceContainer      : {
+        flex: 0.5,
+    },
+    price               : {
+        textAlign: 'right',
+    },
+    deleteBoxContainer  : {
+        width         : 50,
+        height        : '100%',
+        display       : 'flex',
+        flexDirection : 'row',
+        justifyContent: 'center',
+        alignItems    : 'center',
+        padding       : 8,
+    },
+    deleteBox           : {
+        // backgroundColor: 'rgba(255,0,0,0.6)',
+        borderRadius  : 10,
+        justifyContent: 'center',
+        alignItems    : 'center',
+        width         : '100%',
+        height        : '100%',
+    },
 })

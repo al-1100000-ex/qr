@@ -4,10 +4,10 @@
     "slug": "homepage-native",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/dalle_realistic.webp",
+    "icon": "./assets/dalle_realistic.png",
     "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/dalle_realistic.webp",
+      "image": "./assets/dalle_realistic.png",
       "resizeMode": "cover",
       "backgroundColor": "#232323"
     },
@@ -19,14 +19,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/dalle_realistic.webp",
+        "foregroundImage": "./assets/dalle_realistic.png",
         "backgroundColor": "#000000"
       },
-      "package": "com.alexh_music.homepagenative",
-      "permissions": ["CAMERA"]
+      "package": "com.alexh_music.homepagenative"
     },
     "web": {
-      "favicon": "./assets/dalle_realistic.webp"
+      "favicon": "./assets/dalle_realistic.png"
     },
     "extra": {
       "eas": {

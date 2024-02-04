@@ -12,6 +12,8 @@ import MyMenuContainer from "./MyMenu/MyMenuContainer";
 import LoadingContainer from "./Loading/LoadingContainer";
 import {setTable, storeMenuList} from "./reducers/MyMenuReducer";
 import Nav from "./Nav";
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import {faQrcode} from "@fortawesome/free-solid-svg-icons";
 
 const QR = (props) => {
     const [hasPermission, setHasPermission] = useState(null);
@@ -82,11 +84,12 @@ const QR = (props) => {
     }
 
     return (
-        <View>
+        <View style={styles.flex1}>
             <Nav navigation={props.navigation} comp={'qr'} />
             <View style={styles.div}>
                 <TouchableOpacity style={styles.scan_button} onPress={toggleCam}>
                     <Text>Scan QR-Code</Text>
+                    {/*<FontAwesomeIcon icon={faQrcode} />*/}
                 </TouchableOpacity>
                 {cam &&
                     <View style={styles.container}>

@@ -7,14 +7,15 @@ import {Provider} from "react-redux";
 import store from "./Base/store";
 import {enableLatestRenderer} from 'react-native-maps';
 import AppWrapper from "./Base/AppContent";
+import styles from "./Base/styles";
 
 enableLatestRenderer();
 
 const App = () => {
   return (
       <Provider store={store}>
-          <SafeAreaView>
-              <StatusBar style='auto' hidden />
+          <SafeAreaView style={styles.flex1}>
+              <StatusBar style='auto' />
               <AppWrapper />
           </SafeAreaView>
       </Provider>

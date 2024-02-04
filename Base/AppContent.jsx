@@ -12,6 +12,7 @@ import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
 import MyMenuContainer from "./MyMenu/MyMenuContainer";
 import CartContainer from "./Cart/CartContainer";
+import {useEffect} from "react";
 
 const Stack = createStackNavigator();
 
@@ -25,11 +26,11 @@ const AppContent = (props) => {
     };
 
     return (
-        <View>
-            <ImageBackground source={{ uri: config.imageURL + 'dalle_realistic.webp' }} resizeMode={'cover'}>
+        <View style={styles.flex1}>
+            <ImageBackground source={{ uri: config.imageURL + 'dalle_realistic.webp' }} resizeMode={'cover'} style={styles.flex1}>
                 <View style={props.scanned ? styles.mainDimmed : styles.main}>
-                    <NavigationContainer theme={navTheme}>
-                        <Stack.Navigator initialRouteName={"Home"} screenOptions={{ headerShown: false }}>
+                    <NavigationContainer theme={navTheme} style={styles.flex1}>
+                        <Stack.Navigator initialRouteName={"Home"} screenOptions={{ headerShown: false }} style={styles.flex1}>
                             <Stack.Screen name="Home" component={QR} />
                             <Stack.Screen name="MyMenu" component={MyMenuContainer} />
                             <Stack.Screen name="Cart" component={CartContainer} />

@@ -2,15 +2,10 @@ import {connect} from "react-redux";
 import {ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {cartStyle} from "./cartStyle";
 import Nav from "../Nav";
-import React from "react";
+import React, {useEffect} from "react";
 import MyMenuContainer from "../MyMenu/MyMenuContainer";
 
 const CartContainer = (props) => {
-    console.log(props.cart);
-
-    console.log(123,props.cart.list);
-    console.log('test');
-
     return (
         <View>
             <Nav navigation={props.navigation} />
